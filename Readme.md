@@ -21,3 +21,5 @@ u komentar zadatog Issue-a
 - Sta sa slikama
 - Treba rucno da se precrta deo prve i poslednje strane koje ne treba prekucavati
 (namerno se delovi poklapaju da bi svako radio "celinu")
+- Primer rucno precrtanog dela je [recimo ovaj](../blob/main/Parts/0465-0470.pdf)
+- Za ovo sam upotrebljavao program okular
