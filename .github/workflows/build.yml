@@ -1,0 +1,32 @@
+name: Create Pages.tex, Build LaTeX, Upload Book
+on:
+  pull_request:
+    types: closed
+    branches: main
+jobs:
+  create-commit-build-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update Pages.tex
+        run: .github/scripts/updatePagesTeX.sh
+      - name: Commit Change
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'Src/Pages.tex'
+          message: 'Update Src/Pages.tex'
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: Src/Main.tex
+      - name: Rename PDF
+        run: mv Main.pdf Book.pdf
+      - name: Release Book
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Current version of Book"
+          files: Book.pdf

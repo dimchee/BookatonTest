@@ -1,0 +1,17 @@
+name: Create Issues from Parts
+on:
+  workflow_dispatch:
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  create-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Create Issues from Parts
+        run: |
+          for PART in $(ls Parts)
+          do
+            .github/scripts/createIssue.sh ${PART%.*}
+          done

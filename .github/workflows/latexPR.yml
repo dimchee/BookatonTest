@@ -1,0 +1,28 @@
+name: Detect Latex, Create PR
+on:
+  issue_comment:
+    types:
+      - created
+      - edited
+jobs:
+  detect-latex:
+    runs-on: ubuntu-latest
+    if: startsWith( github.event.comment.body, '\documentclass' )
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Add LaTeX
+        env:
+          FILE: ${{ format( 'Src/Pages/{0}.tex', github.event.issue.title ) }}
+        run: |
+          mkdir -p Src/Pages
+          cat > $FILE << EOF
+          ${{ github.event.comment.body }}
+          EOF
+          .github/scripts/updateRawPage.sh $FILE
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: ${{ format( 'page-fix/{0}', github.event.issue.title) }} 
+          title: ${{ format( 'Add LaTeX of pages {0}', github.event.issue.title ) }}
+          body: "Automated change, triggered by $\\LaTeX$ comment on Issue"
