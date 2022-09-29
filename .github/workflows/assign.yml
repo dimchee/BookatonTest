@@ -1,0 +1,16 @@
+name: Assign Issue to user
+on:
+  issue_comment:
+    types:
+      - created
+      - edited
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    if: startsWith( github.event.comment.body, 'Assign me' )
+    steps:
+      - name: Assign Issue
+        uses: pozil/auto-assign-issue@v1
+        with:
+          assignees: ${{ github.event.sender.login }}
+          removePreviousAssignees: true
