@@ -18,6 +18,7 @@ u komentar zadatog Issue-a
 `\begin{document}` i `\end{document}`.
 
 ## ToDo
+- Check action (da checkuje da se poslat latex u template-u compiluje)
 - Sta sa slikama
 - Treba rucno da se precrta deo prve i poslednje strane koje ne treba prekucavati
 (namerno se delovi poklapaju da bi svako radio "celinu")
