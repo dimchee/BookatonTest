@@ -12,7 +12,10 @@ pise desno ispod zelenog dugmeta `New Issue` (Traje 10-ak sekundi)
 odnosno da bi svako radio razlicito
 - Takodje postoji link koji se zove `Zadate stranice` gde su stranice koje treba prekucati
 - Otvoriti profil na [overleafu](https://www.overleaf.com), odnosno ulogovati se
-- Uci u ovaj [Template](https://www.overleaf.com/read/yzxzjbfjcxjx), iskopirati ga, i rad moze da pocne
+- Uci u ovaj [Template](https://www.overleaf.com/read/yzxzjbfjcxjx), iskopirati ga, i rad moze da pocne:
+- ![menu](https://user-images.githubusercontent.com/41148612/198137488-5bd68fae-6e51-41ea-806c-cf28845f38ad.png)
+- ![copy](https://user-images.githubusercontent.com/41148612/198137575-d5f6896b-2d36-4697-827e-2440dc98b217.png)
+
 - Kada je LaTeX dokument gotov, dobro proveriti da se dokument compiluje, a onda ceo code pastovati
 u komentar zadatog Issue-a
 - Ostalo bi trebalo da se desi automatski
